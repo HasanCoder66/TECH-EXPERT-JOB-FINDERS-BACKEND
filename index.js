@@ -13,8 +13,14 @@ import cvRoute from "./Routes/myCvRoute.js";
 import uploadRoute from "./Routes/uploadRoute.js";
 import CoverLetterTemplateRoute from "./Routes/coverLetterTemplateRoutes.js";
 import ResumeTemplateRoute from "./Routes/resumeTemplateRoute.js";
+
+import WebsiteTemplateRoute from "./Routes/websiteTemplateRoute.js";
+import websiteRoute from "./Routes/webisteRoute.js";
+
 import Stripe from 'stripe';
 
+// mongodb+srv://techexpertjobfinders:S3AjilK4ubU7Al8Q@cluster0.ozqaljr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oahrmzf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 const stripe = new Stripe('sk_test_51PLqWt06k5m2AJAivXSQ49uQVDNMSw0P5bYMHOnrzkgZy1O9ggJqsGWcyLnqtz7wjWsfAAUTismT8NxqvN0gEaPl00yWGbHwf8');
 
 dotenv.config();
@@ -28,7 +34,8 @@ const PORT =  5000; //
 // Connect to MongoDB =====>
 const connectDB = () => {
   mongoose
-    .connect(process.env.MONGO_URI)
+  // process.env.MONGO_URI
+    .connect(MONGO)
     .then(() => {
       console.log("Database Connected");
     })
@@ -51,7 +58,9 @@ app.use(
 // middlewares =====>
 app.use("/api/auth", UserRoute);
 app.use("/api/myCv", cvRoute);
+app.use("/api/website", websiteRoute);
 app.use("/api/myResume", ResumeTemplateRoute);
+app.use("/api/websiteTemplate", WebsiteTemplateRoute);
 app.use("/api/coverLetter", CoverLetterRoute);
 app.use("/api/coverLetterTem", CoverLetterTemplateRoute);
 app.use("/api/job", jobRoutes);
@@ -74,6 +83,7 @@ app.use((err, req, res, next) => {
     stack: errorStack,
   });
 });
+
 app.post('/create-checkout-session', async (req, res) => {
   console.log('Request received at /create-checkout-session');
   try {
