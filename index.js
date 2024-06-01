@@ -21,7 +21,7 @@ import Stripe from 'stripe';
 
 // mongodb+srv://techexpertjobfinders:S3AjilK4ubU7Al8Q@cluster0.ozqaljr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oahrmzf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const stripe = new Stripe('sk_test_51PLqWt06k5m2AJAivXSQ49uQVDNMSw0P5bYMHOnrzkgZy1O9ggJqsGWcyLnqtz7wjWsfAAUTismT8NxqvN0gEaPl00yWGbHwf8');
+const stripe = new Stripe(process.env.STRIPE);
 
 dotenv.config();
 const app = express();
@@ -56,6 +56,9 @@ app.use(
 );
 
 // middlewares =====>
+app.get('/', (req, res) => {
+  res.send('Hello, world!');
+});
 app.use("/api/auth", UserRoute);
 app.use("/api/myCv", cvRoute);
 app.use("/api/website", websiteRoute);
