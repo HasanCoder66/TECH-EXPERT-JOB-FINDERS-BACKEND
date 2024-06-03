@@ -10,111 +10,117 @@ const cvSchema = Schema(
       type: String,
       // required:true,
     },
-    title: {
-      type: String,
-      required: true,
+    profileData: {
+      title: {
+        type: String,
+        // required: true,
+      },
+      firstName: {
+        type: String,
+        // required: true,
+      },
+      middleName: {
+        type: String,
+      },
+      lastName: {
+        type: String,
+        // required: true,
+      },
+      gender: {
+        type: String,
+        // required: true,
+        default: "select",
+      },
+      marital: {
+        type: String,
+        // required: true,
+        default: "select",
+      },
+      profession: {
+        type: String,
+        // required: true,
+      },
+      streetAddress: {
+        type: String,
+        // required: true,
+      },
+      city: {
+        type: String,
+        // required: true,
+      },
+      dob: {
+        type: String,
+      },
+      state: {
+        type: String,
+        // required: true,
+      },
+      nationality: {
+        type: String,
+        // required: true,
+        default: "select",
+      },
+      passportNo: {
+        type: Number,
+      },
+      mobNum: {
+        type: Number,
+        // required: true,
+      },
+      email: {
+        type: String,
+        // required: true,
+      },
     },
-    firstName: {
-      type: String,
-      required: true,
+    experienceData: {
+      jobTitle: {
+        type: String,
+      },
+      employer: {
+        type: String,
+      },
+      expCity: {
+        type: String,
+      },
+      expState: {
+        type: String,
+      },
+      startDate: {
+        type: String,
+      },
+      endData: {
+        type: String,
+      },
+      responsibilities: {
+        type: String,
+      },
     },
-    middleName: {
-      type: String,
+    educationData: {
+      schoolName: {
+        type: String,
+      },
+      schoolCity: {
+        type: String,
+      },
+      schoolState: {
+        type: String,
+      },
+      lastQualification: {
+        type: String,
+        // required: true,
+        default: "select",
+      },
+      fieldOfStudy: {
+        type: String,
+      },
+      educationStartDate: {
+        type: String,
+      },
+      endEducationDate: {
+        type: String,
+      },
     },
-    lastName: {
-      type: String,
-      required: true,
-    },
-    gender: {
-      type: String,
-      required: true,
-      enum: ["male", "female", "other", "select"],
-      default: "select",
-    },
-    maritalStatus: {
-      type: String,
-      required: true,
-      enum: ["single", "married", "divorce", "widowed", "select"],
-      default: "select",
-    },
-    profession: {
-      type: String,
-      required: true,
-    },
-    streetAddress: {
-      type: String,
-      required: true,
-    },
-    city: {
-      type: String,
-      required: true,
-    },
-    dob: {
-      type: String,
-    },
-    stateProvince: {
-      type: String,
-      required: true,
-    },
-    nationality: {
-      type: String,
-      required: true,
-      enum: ["Pakistan", "India", "Australia", "Ireland", "Canada", "select"],
-      default: "select",
-    },
-    passportNumber: {
-      type: Number,
-    },
-    phoneNumber: {
-      type: Number,
-      required: true,
-    },
-    email: {
-      type: String,
-      required: true,
-    },
-    jobTitle: {
-      type: String,
-    },
-    employer: {
-      type: String,
-    },
-    employmentCity : {
-      type : String
-    },
-    previousWorkState: {
-      type: String,
-    },
-    jobStartDate: {
-      type: String,
-    },
-    jobEndData: {
-      type: String,
-    },
-    schoolName: {
-      type: String,
-    },
-    schoolLocation: {
-      type: String,
-    },
-    schoolState: {
-      type: String,
-    },
-    degree: {
-      type: String,
-      required: true,
-      enum: ["Matric", "intermediate", "secondary", "MBA", "BA", "select"],
-      default: "select",
-    },
-    fieldOfStudy: {
-      type: String,
-    },
-    graduationStartDate: {
-      type: String,
-    },
-    graduationEndDate: {
-      type: String,
-    },
+
     skills: {
       type: [
         {
@@ -123,14 +129,6 @@ const cvSchema = Schema(
           },
           level: {
             type: String,
-            enum: [
-              "Novice",
-              "Beginners",
-              "Intermediate",
-              "Proficient",
-              "Expert",
-              "Select",
-            ],
             default: "Select",
           },
         },
@@ -148,24 +146,21 @@ const cvSchema = Schema(
     //     },
     //   ],
     // },
-    photoAndSocial: {
-      type: {
-        image: {
-          type: String,
-        },
-        fbUserName: {
-          type: String,
-        },
-        twitterUserName: {
-          type: String,
-        },
-        linkedinUserName: {
-          type: String,
-        },
-        websiteURL: {
-          type: String,
-        },
-      },
+
+    // image: {
+    //   type: String,
+    // },
+    fbUserName: {
+      type: String,
+    },
+    twitterUserName: {
+      type: String,
+    },
+    linkedinUserName: {
+      type: String,
+    },
+    websiteLink: {
+      type: String,
     },
 
     // refereesName: {
@@ -212,7 +207,7 @@ const cvSchema = Schema(
     //   ],
     // },
 
-    language: {
+    languages: {
       type: [
         {
           language: {
@@ -220,21 +215,13 @@ const cvSchema = Schema(
           },
           level: {
             type: String,
-            enum: [
-              "Novice",
-              "Beginners",
-              "Intermediate",
-              "Proficient",
-              "Expert",
-              "Select",
-            ],
             default: "Select",
           },
         },
       ],
     },
 
-    certification: {
+    certificates: {
       type: [
         {
           certificate: {

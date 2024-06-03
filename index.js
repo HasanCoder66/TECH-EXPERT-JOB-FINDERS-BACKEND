@@ -20,7 +20,8 @@ import websiteRoute from "./Routes/webisteRoute.js";
 import Stripe from 'stripe';
 
 // mongodb+srv://techexpertjobfinders:S3AjilK4ubU7Al8Q@cluster0.ozqaljr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oahrmzf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+// const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oahrmzf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+
 const stripe = new Stripe(process.env.STRIPE);
 
 dotenv.config();
@@ -35,7 +36,7 @@ const PORT =  5000; //
 const connectDB = () => {
   mongoose
   // process.env.MONGO_URI
-    .connect(MONGO)
+    .connect(process.env.MONGO_URI)
     .then(() => {
       console.log("Database Connected");
     })
