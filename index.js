@@ -41,7 +41,7 @@ const PORT =  5000; //
 const connectDB = () => {
   mongoose
   // process.env.MONGO_URI
-    .connect(process.env.MONGO_URI)
+    .connect(MONGO)
     .then(() => {
       console.log("Database Connected");
     })
