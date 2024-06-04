@@ -21,7 +21,8 @@ import Stripe from 'stripe';
 
 // mongodb+srv://techexpertjobfinders:S3AjilK4ubU7Al8Q@cluster0.ozqaljr.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
 // const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oahrmzf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@trimslim.zeirxjy.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=TrimSlim`;
+// const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@trimslim.zeirxjy.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=TrimSlim`;
+const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ieng3h5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 
 
