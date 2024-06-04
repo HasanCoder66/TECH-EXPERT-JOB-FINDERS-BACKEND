@@ -23,7 +23,7 @@ import Stripe from 'stripe';
 // const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.oahrmzf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 // const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@trimslim.zeirxjy.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=TrimSlim`;
 // const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ieng3h5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
-// const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@techexpertbackend.zlnxgv3.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=techexpertBackend`;
+const MONGO = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@techexpertbackend.zlnxgv3.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority&appName=techexpertBackend`;
 
 
 
@@ -41,7 +41,7 @@ const PORT =  5000; //
 const connectDB = () => {
   mongoose
   // process.env.MONGO_URI
-    .connect(process.env.MONGO_URI)
+    .connect(MONGO)
     .then(() => {
       console.log("Database Connected");
     })
